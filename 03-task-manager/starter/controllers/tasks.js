@@ -9,13 +9,8 @@ const getAllTasks = (req, res) => {
 const createTask = async(req, res) => {
     try {
         const task = await Task.create(req.body);
-        res.status(201).json({
-            task: {
-                _id: task._id,
-                name: task.name,
-                completed: task.completed,
-            },
-        });
+        const fullTask = await Task.findById(task._id);
+        res.status(201).json({ task: fullTask });
     } catch (error) {
         console.error('Error creating task', error);
         res.status(500).json({ error: 'Internal server error' });
