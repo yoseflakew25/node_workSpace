@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 
 
 
-const TaskSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    completed: { type: Boolean, required: false, default: false },
+const taskSchema = new mongoose.Schema({
+    name: String,
+    completed: Boolean,
 });
 
+const Task = mongoose.model('Task', taskSchema);
 
-module.exports = mongoose.model('Task', TaskSchema)
+module.exports = Task
