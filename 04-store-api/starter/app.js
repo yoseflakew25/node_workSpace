@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/api/v1/products')
+app.use('/api/v1/products', )
 
 
 // products route
