@@ -29,6 +29,7 @@ const getTask = async (req, res) => {
         if (!task){
             return res.stats(404).json({ error: 'Task not found' });
         }
+        
         res.status(200).json({task})
     } catch (error) {
         console.error('Error creating task', error);
@@ -42,19 +43,19 @@ const updateTask = (req, res) => {
 const deleteTask = async (req, res) => {
     try {
        const  {id:taskID}=req.params
-       const task=await Task.findByIdAndDelete({_id:taskID}).json
+       const task=await Task.findByIdAndDelete({_id:taskID})
        if (!task){
         return res.status(404).json({ error: 'Task not found' });
     }
-    console.log(task);
-    res.status(200).json({task})
+   
+    res.status(200).json({task:null,status:'success'})
     } catch (error) {
         console.error('Error creating task', error);
         res.status(500).json({ error: 'Internal server error' });
       
    
     }
-    res.send('delete task')
+   
 }
 
 module.exports = {
