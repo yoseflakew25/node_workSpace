@@ -4,8 +4,15 @@ const mongoose = require('mongoose')
 
 
 const taskSchema = new mongoose.Schema({
-    name: String,
-    completed: Boolean,
+    name: {
+        type: String,
+        required: true
+    },
+    completed: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
 });
 
 const Task = mongoose.model('Task', taskSchema);
