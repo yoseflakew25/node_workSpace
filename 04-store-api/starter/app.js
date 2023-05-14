@@ -32,6 +32,10 @@ app.get('/', (req, res) => {
 });
 
 
+
+app.use('/api/v1/products')
+
+
 // products route
 
 app.use(notFoundMiddleware)
