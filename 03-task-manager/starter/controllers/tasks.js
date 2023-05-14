@@ -1,3 +1,5 @@
+const Task = require('../models/Task')
+
 const getAllTasks = (req, res) => {
     res.send('all the fies from the file')
 }
