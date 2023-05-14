@@ -1,7 +1,13 @@
 const Task = require('../models/Task')
 
-const getAllTasks = (req, res) => {
-    res.send('all the fies from the file')
+const getAllTasks = async (req, res) => {
+    try {
+        const tasks=await Task.find({})
+        res.status(200).json({tasks})
+    } catch (error) {
+        console.error('Error creating task', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 }
 
 
