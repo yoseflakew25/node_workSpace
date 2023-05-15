@@ -4,9 +4,12 @@ const product=require('../models/product')
 const getAllProductsStatic = async(req, res) => {
 
 
-    const products=await product.find({featured:true})
+    const products=await product.find({
+        featured:true,
+       
+    })
   
-    res.status(200).json(products)
+    res.status(200).json({products, nbHits:getAllProducts.length})
    
 }
 
