@@ -11,15 +11,15 @@ const productSchema = new mongoose.Schema({
     },
     company: {
         type: String,
-        required: [true, 'product description must be provided'],
+        enum: ['ikea'],
     },
     featured: {
-        type: String,
-        required: [true, 'product image must be provided'],
+        type: Boolean,
+        default: false,
     },
     rating: {
-        type: String,
-        required: [true, 'product category must be provided'],
+        type: Number,
+        default: 4.5,
     },
 
     createdAt: {
