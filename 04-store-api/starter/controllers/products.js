@@ -3,7 +3,7 @@ const product=require('../models/product')
 
 const getAllProductsStatic = async(req, res) => {
 
-const search='abbbbbbb'
+const search='a '
     const products=await product.find({
         name:{$regex:search,$options: 'i'}
     })
@@ -26,7 +26,7 @@ const getAllProducts = async (req, res) => {
         queryObject.company=company==='true'?true:false
     }
     if (name){
-        queryObject.name=name==='true'?true:false
+        queryObject.name={$regex:name,$options: 'i'}
     }
     console.log(queryObject);
     const products=await product.find(req.query)
