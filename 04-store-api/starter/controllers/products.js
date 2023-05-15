@@ -5,10 +5,9 @@ const getAllProductsStatic = async(req, res) => {
 
 
     const products=await product.find({
-        featured:true,
-       
+        name:'vase table'
     })
-  
+
     res.status(200).json({products, nbHits:getAllProducts.length})
    
 }
