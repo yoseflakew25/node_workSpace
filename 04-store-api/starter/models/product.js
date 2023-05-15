@@ -9,20 +9,21 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'product price must be provided'],
     },
-    description: {
+    company: {
         type: String,
         required: [true, 'product description must be provided'],
     },
-    image: {
+    featured: {
         type: String,
         required: [true, 'product image must be provided'],
     },
-    category: {
+    rating: {
         type: String,
         required: [true, 'product category must be provided'],
     },
-    quantity: {
-        type: Number,
-        required: [true, 'product quantity must be provided'],
-    },
+
+    createdAt: {
+        type: Date,
+        default: new Date.now(),
+    }
 })
