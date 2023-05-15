@@ -9,10 +9,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'product price must be provided'],
     },
-    company: {
-        type: String,
-        enum: ['ikea'],
-    },
+
     featured: {
         type: Boolean,
         default: false,
@@ -25,5 +22,16 @@ const productSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date.now(),
+    },
+    company: {
+        type: String,
+        enum: {
+            values: ['ikea', 'liddy', 'caressa', 'marcos'],
+            message: '{VALUE} is not a valid company',
+        },
+        // enum: ['ikea', 'liddy', 'caressa', 'marcos'],
     }
 })
+
+
+module.exports = mongoose.model('Product', productSchema);
