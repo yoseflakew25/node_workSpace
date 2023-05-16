@@ -31,7 +31,13 @@ const getAllProducts = async (req, res) => {
     // console.log(queryObject);
     let result= product.find(queryObject)
     if (sort){
-        console.log(sort);
+        const sortList=sort.split(',').join(' ')
+        result=result.sort(sortList)
+    }
+
+
+    else{
+        result=result.sort('createdAt')
     }
     const products=await result
     res.status(200).json({products, nbHits:products.length})
