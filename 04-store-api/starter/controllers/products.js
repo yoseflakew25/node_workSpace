@@ -31,7 +31,7 @@ const getAllProducts = async (req, res) => {
     // console.log(queryObject);
     let result= product.find(queryObject)
     if (sort){
-        products=products.sort()
+        console.log(sort);
     }
     const products=await result
     res.status(200).json({products, nbHits:products.length})
