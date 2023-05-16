@@ -14,7 +14,7 @@ const search='a'
 
 
 const getAllProducts = async (req, res) => {
-    const {featured,company,name} = req.query
+    const {featured,company,name,sort} = req.query
     const queryObject={}
 
 
